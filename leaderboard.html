@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leaderboard — Wadi Degla Speedball League</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html" style="cursor:pointer;">
+        <div class="brand-mark">SB</div>
+        <div class="brand-text">
+          <span class="club">Wadi Degla Club</span>
+          <span class="title">Speedball League</span>
+        </div>
+      </a>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </header>
+
+  <nav class="event-tabs">
+    <div class="container">
+      <div id="event-tabs" class="tab-row"></div>
+    </div>
+  </nav>
+  <nav class="page-tabs">
+    <div class="container">
+      <div id="page-tabs" class="tab-row"></div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <div class="page-heading">
+        <div>
+          <h1>Leaderboard</h1>
+          <div class="sub">Everyone in this event's divisions, combined and ranked. Top 3 get the podium.</div>
+        </div>
+      </div>
+
+      <!-- js/page-leaderboard.js fills these two containers -->
+      <div id="podium" class="podium"></div>
+      <div id="leaderboard-list" class="leaderboard-list"></div>
+    </div>
+  </main>
+
+  <footer>
+    Wadi Degla Speedball League &middot; Best of 3 rounds, played to 10 points.
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/data-engine.js"></script>
+  <script src="js/page-leaderboard.js"></script>
+</body>
+</html>

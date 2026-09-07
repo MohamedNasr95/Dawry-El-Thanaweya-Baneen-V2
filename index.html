@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Makes the layout scale correctly on phones -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wadi Degla Speedball League</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- =====================================================================
+       HEADER — appears on every page. If you want to change the club name
+       or logo letters, edit the two lines inside .brand-text below, and
+       the "brand-mark" letters just under it.
+       ===================================================================== -->
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">
+        <div class="brand-mark">SB</div>
+        <div class="brand-text">
+          <span class="club">Wadi Degla Club</span>
+          <span class="title">Speedball League</span>
+        </div>
+      </div>
+      <!-- Light/Dark theme switch — logic lives in js/main.js -->
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="page-heading">
+        <div>
+          <h1>Choose an event</h1>
+          <div class="sub">Pick Singles, Doubles or Mixed Doubles to see its divisions, match history and leaderboard.</div>
+        </div>
+      </div>
+
+      <!-- These 3 cards just link into divisions.html with the right ?event= value.
+           If you rename/add events, also update js/main.js (EVENTS list) and data/data.json. -->
+      <div class="event-grid">
+        <div class="event-card">
+          <div class="icon">1</div>
+          <h3>Singles</h3>
+          <p>One player vs one player.</p>
+          <a class="go-link" href="divisions.html?event=singles">View Singles →</a>
+        </div>
+        <div class="event-card">
+          <div class="icon">2</div>
+          <h3>Doubles</h3>
+          <p>Two players per team.</p>
+          <a class="go-link" href="divisions.html?event=doubles">View Doubles →</a>
+        </div>
+        <div class="event-card">
+          <div class="icon">MX</div>
+          <h3>Mixed Doubles</h3>
+          <p>One man &amp; one woman per team.</p>
+          <a class="go-link" href="divisions.html?event=mixed">View Mixed Doubles →</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    Wadi Degla Speedball League &middot; Best of 3 rounds, played to 10 points.
+  </footer>
+
+  <!-- main.js must load before any page-specific script, it sets up the theme -->
+  <script src="js/main.js"></script>
+</body>
+</html>

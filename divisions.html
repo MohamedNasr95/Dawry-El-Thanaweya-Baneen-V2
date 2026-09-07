@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Divisions — Wadi Degla Speedball League</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html" style="cursor:pointer;">
+        <div class="brand-mark">SB</div>
+        <div class="brand-text">
+          <span class="club">Wadi Degla Club</span>
+          <span class="title">Speedball League</span>
+        </div>
+      </a>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </header>
+
+  <!-- Event tabs (Singles/Doubles/Mixed) and Page tabs (Divisions/History/Leaderboard)
+       are both filled in automatically by js/main.js -> renderNav(). Don't hand-edit
+       the empty divs below, edit the EVENTS/PAGES lists in js/main.js instead. -->
+  <nav class="event-tabs">
+    <div class="container">
+      <div id="event-tabs" class="tab-row"></div>
+    </div>
+  </nav>
+  <nav class="page-tabs">
+    <div class="container">
+      <div id="page-tabs" class="tab-row"></div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <div class="page-heading">
+        <div>
+          <h1 id="event-title">Division Tables</h1>
+          <div class="sub">Ranked by league points, then round difference, then point difference.</div>
+        </div>
+      </div>
+
+      <!-- js/page-divisions.js fills this with one .division-card per division -->
+      <div id="divisions-content"></div>
+    </div>
+  </main>
+
+  <footer>
+    Wadi Degla Speedball League &middot; Best of 3 rounds, played to 10 points.
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/data-engine.js"></script>
+  <script src="js/page-divisions.js"></script>
+</body>
+</html>

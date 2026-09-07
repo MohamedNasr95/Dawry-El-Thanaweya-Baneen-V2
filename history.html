@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Match History — Wadi Degla Speedball League</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html" style="cursor:pointer;">
+        <div class="brand-mark">SB</div>
+        <div class="brand-text">
+          <span class="club">Wadi Degla Club</span>
+          <span class="title">Speedball League</span>
+        </div>
+      </a>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </header>
+
+  <nav class="event-tabs">
+    <div class="container">
+      <div id="event-tabs" class="tab-row"></div>
+    </div>
+  </nav>
+  <nav class="page-tabs">
+    <div class="container">
+      <div id="page-tabs" class="tab-row"></div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <div class="page-heading">
+        <div>
+          <h1>Match History</h1>
+          <div class="sub">Grouped by day. Finished matches show the round-by-round score; upcoming ones show "To be played".</div>
+        </div>
+      </div>
+
+      <!-- js/page-history.js fills this with one .day-card per date -->
+      <div id="history-content"></div>
+    </div>
+  </main>
+
+  <footer>
+    Wadi Degla Speedball League &middot; Best of 3 rounds, played to 10 points.
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/data-engine.js"></script>
+  <script src="js/page-history.js"></script>
+</body>
+</html>

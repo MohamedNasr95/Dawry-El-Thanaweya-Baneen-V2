@@ -1,0 +1,214 @@
+{
+  "_instructions": {
+    "readMeFirst": "THIS IS THE ONLY FILE YOU SHOULD NEED TO EDIT DAY-TO-DAY. Everything on the website (tables, history, leaderboard) is calculated automatically from what you put here. Nothing outside this file needs to change when you add players, matches or results. Below is a quick map of every section. JSON does not support real comments, so this '_instructions' block is just a normal (ignored) piece of data the website skips over - read it, then delete it if you want a cleaner file, it won't break anything either way.",
+    "settings": "pointsForWin / pointsForLoss = league points given for winning/losing a MATCH (not a round). Change these two numbers to change how standings points are calculated everywhere.",
+    "players": "One entry per human being in the club, used by ALL THREE events. id must be unique and is how everything else refers to a player. gender is 'M' or 'F' and is only used to help you build correct Mixed Doubles teams.",
+    "teams": "Used by the 'doubles' and 'mixed' events only. Each team is 2 playerIds. name is optional - leave it blank (\"\") and the site will auto-generate 'PlayerA & PlayerB' from the player list.",
+    "events.<event>.divisions": "Each division has an id, a display name, a 'participants' list (player ids for singles, TEAM ids for doubles/mixed), and a 'matches' list. Every participant should play every other participant once (round robin) - the site does NOT auto-generate the match list, you add each match by hand so you can control the schedule/date.",
+    "matches": "Each match needs: id, day ('Friday'), date ('2026-09-11'), participants: [idA, idB], played: true/false, rounds: a list of {a: number, b: number} score objects. Leave rounds as an empty array [] and played:false for a match that hasn't happened yet - it will show as 'To be played'. A match is decided BEST OF 3 rounds, each round played to 10 points, so add rounds one at a time as they finish; you do NOT need to add a 3rd round if a side already won the first two."
+  },
+
+  "settings": {
+    "pointsForWin": 2,
+    "pointsForLoss": 0,
+    "roundTarget": 10
+  },
+
+  "players": [
+    { "id": "p1", "name": "Omar Khaled",   "gender": "M" },
+    { "id": "p2", "name": "Youssef Adel",  "gender": "M" },
+    { "id": "p3", "name": "Karim Hassan",  "gender": "M" },
+    { "id": "p4", "name": "Ahmed Nasser",  "gender": "M" },
+    { "id": "p5", "name": "Mostafa Ali",   "gender": "M" },
+    { "id": "p6", "name": "Sherif Fathy",  "gender": "M" },
+    { "id": "p7", "name": "Amr Sami",      "gender": "M" },
+    { "id": "p8", "name": "Tarek Ibrahim", "gender": "M" },
+    { "id": "p9", "name": "Nour Mahmoud",  "gender": "F" },
+    { "id": "p10","name": "Salma Reda",    "gender": "F" },
+    { "id": "p11","name": "Mariam Adel",   "gender": "F" },
+    { "id": "p12","name": "Farida Hany",   "gender": "F" }
+  ],
+
+  "teams": {
+    "doubles": [
+      { "id": "d1", "name": "", "playerIds": ["p1", "p3"] },
+      { "id": "d2", "name": "", "playerIds": ["p2", "p4"] },
+      { "id": "d3", "name": "", "playerIds": ["p5", "p7"] },
+      { "id": "d4", "name": "", "playerIds": ["p6", "p8"] }
+    ],
+    "mixed": [
+      { "id": "mx1", "name": "", "playerIds": ["p1", "p9"] },
+      { "id": "mx2", "name": "", "playerIds": ["p2", "p10"] },
+      { "id": "mx3", "name": "", "playerIds": ["p3", "p11"] },
+      { "id": "mx4", "name": "", "playerIds": ["p4", "p12"] }
+    ]
+  },
+
+  "events": {
+    "singles": {
+      "label": "Singles",
+      "divisions": [
+        {
+          "id": "s-div-a",
+          "name": "Division A",
+          "participants": ["p1", "p2", "p3", "p4"],
+          "matches": [
+            {
+              "id": "s-a-1", "day": "Friday", "date": "2026-09-11",
+              "participants": ["p1", "p2"], "played": true,
+              "rounds": [ { "a": 10, "b": 7 }, { "a": 8, "b": 10 }, { "a": 10, "b": 6 } ]
+            },
+            {
+              "id": "s-a-2", "day": "Friday", "date": "2026-09-11",
+              "participants": ["p3", "p4"], "played": true,
+              "rounds": [ { "a": 10, "b": 4 }, { "a": 10, "b": 8 } ]
+            },
+            {
+              "id": "s-a-3", "day": "Friday", "date": "2026-09-18",
+              "participants": ["p1", "p3"], "played": false,
+              "rounds": []
+            },
+            {
+              "id": "s-a-4", "day": "Friday", "date": "2026-09-18",
+              "participants": ["p2", "p4"], "played": false,
+              "rounds": []
+            },
+            {
+              "id": "s-a-5", "day": "Friday", "date": "2026-09-25",
+              "participants": ["p1", "p4"], "played": false,
+              "rounds": []
+            },
+            {
+              "id": "s-a-6", "day": "Friday", "date": "2026-09-25",
+              "participants": ["p2", "p3"], "played": false,
+              "rounds": []
+            }
+          ]
+        },
+        {
+          "id": "s-div-b",
+          "name": "Division B",
+          "participants": ["p5", "p6", "p7", "p8"],
+          "matches": [
+            {
+              "id": "s-b-1", "day": "Saturday", "date": "2026-09-12",
+              "participants": ["p5", "p6"], "played": true,
+              "rounds": [ { "a": 10, "b": 8 }, { "a": 10, "b": 5 } ]
+            },
+            {
+              "id": "s-b-2", "day": "Saturday", "date": "2026-09-12",
+              "participants": ["p7", "p8"], "played": false,
+              "rounds": []
+            },
+            {
+              "id": "s-b-3", "day": "Saturday", "date": "2026-09-19",
+              "participants": ["p5", "p7"], "played": false,
+              "rounds": []
+            },
+            {
+              "id": "s-b-4", "day": "Saturday", "date": "2026-09-19",
+              "participants": ["p6", "p8"], "played": false,
+              "rounds": []
+            },
+            {
+              "id": "s-b-5", "day": "Saturday", "date": "2026-09-26",
+              "participants": ["p5", "p8"], "played": false,
+              "rounds": []
+            },
+            {
+              "id": "s-b-6", "day": "Saturday", "date": "2026-09-26",
+              "participants": ["p6", "p7"], "played": false,
+              "rounds": []
+            }
+          ]
+        }
+      ]
+    },
+
+    "doubles": {
+      "label": "Doubles",
+      "divisions": [
+        {
+          "id": "d-div-a",
+          "name": "Division A",
+          "participants": ["d1", "d2", "d3", "d4"],
+          "matches": [
+            {
+              "id": "d-a-1", "day": "Sunday", "date": "2026-09-13",
+              "participants": ["d1", "d2"], "played": true,
+              "rounds": [ { "a": 10, "b": 9 }, { "a": 10, "b": 6 } ]
+            },
+            {
+              "id": "d-a-2", "day": "Sunday", "date": "2026-09-13",
+              "participants": ["d3", "d4"], "played": false,
+              "rounds": []
+            },
+            {
+              "id": "d-a-3", "day": "Sunday", "date": "2026-09-20",
+              "participants": ["d1", "d3"], "played": false,
+              "rounds": []
+            },
+            {
+              "id": "d-a-4", "day": "Sunday", "date": "2026-09-20",
+              "participants": ["d2", "d4"], "played": false,
+              "rounds": []
+            },
+            {
+              "id": "d-a-5", "day": "Sunday", "date": "2026-09-27",
+              "participants": ["d1", "d4"], "played": false,
+              "rounds": []
+            },
+            {
+              "id": "d-a-6", "day": "Sunday", "date": "2026-09-27",
+              "participants": ["d2", "d3"], "played": false,
+              "rounds": []
+            }
+          ]
+        }
+      ]
+    },
+
+    "mixed": {
+      "label": "Mixed Doubles",
+      "divisions": [
+        {
+          "id": "m-div-a",
+          "name": "Division A",
+          "participants": ["mx1", "mx2", "mx3", "mx4"],
+          "matches": [
+            {
+              "id": "m-a-1", "day": "Monday", "date": "2026-09-14",
+              "participants": ["mx1", "mx2"], "played": true,
+              "rounds": [ { "a": 6, "b": 10 }, { "a": 5, "b": 10 } ]
+            },
+            {
+              "id": "m-a-2", "day": "Monday", "date": "2026-09-14",
+              "participants": ["mx3", "mx4"], "played": false,
+              "rounds": []
+            },
+            {
+              "id": "m-a-3", "day": "Monday", "date": "2026-09-21",
+              "participants": ["mx1", "mx3"], "played": false,
+              "rounds": []
+            },
+            {
+              "id": "m-a-4", "day": "Monday", "date": "2026-09-21",
+              "participants": ["mx2", "mx4"], "played": false,
+              "rounds": []
+            },
+            {
+              "id": "m-a-5", "day": "Monday", "date": "2026-09-28",
+              "participants": ["mx1", "mx4"], "played": false,
+              "rounds": []
+            },
+            {
+              "id": "m-a-6", "day": "Monday", "date": "2026-09-28",
+              "participants": ["mx2", "mx3"], "played": false,
+              "rounds": []
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
