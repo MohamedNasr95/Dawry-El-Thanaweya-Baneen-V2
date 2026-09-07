@@ -22,7 +22,6 @@ let _dataPromise = null;
  */
 function loadLeagueData() {
   if (!_dataPromise) {
-    console.log("hhhhhhhhhhhhhhhhhhhh")
     _dataPromise = fetch('data/data.json')
       .then((res) => {
         if (!res.ok) throw new Error('Could not load data/data.json (' + res.status + ')');
