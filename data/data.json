@@ -297,17 +297,17 @@
           "matches": [
             {
               "id": "d-b-1", "day": "Friday", "date": "2026-09-18",
-              "participants": ["d1", "d2"], "played": false,
+              "participants": ["d5", "d6"], "played": false,
               "rounds": []
             },
             {
-              "id": "d-b-2", "day": "Friday", "date": "2026-09-18",
-              "participants": ["d3", "d1"], "played": false,
+              "id": "d-b-2", "day": "Friday", "date": "2026-09-25",
+              "participants": ["d5", "d7"], "played": false,
               "rounds": []
             },
             {
-              "id": "d-b-3", "day": "Friday", "date": "2026-09-25",
-              "participants": ["d2", "d3"], "played": false,
+              "id": "d-b-3", "day": "Friday", "date": "2026-10-02",
+              "participants": ["d6", "d7"], "played": false,
               "rounds": []
             }
           ]
