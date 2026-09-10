@@ -54,7 +54,7 @@ function getParticipantName(data, eventKey, participantId) {
   if (team.name && team.name.trim() !== '') return team.name;
   const names = team.playerIds.map((pid) => {
     const p = getPlayer(data, pid);
-    return p ? p.name.split(' ')[0] : pid; // first names only, e.g. "Omar & Nour"
+    return p ? p.name : pid; // first names only, e.g. "Omar & Nour"
   });
   return names.join(' & ');
 }
@@ -148,10 +148,17 @@ function computeDivisionStandings(data, eventKey, division) {
   return list;
 }
 
-/** Shared sort used by division tables AND the leaderboard. */
-function sortStandings(list) {
+/**
+ * Shared sort used by division tables AND the leaderboard.
+ * `field` is which "points" number decides the ranking:
+ *   - 'leaguePoints' for the division tables (match points only)
+ *   - 'totalPoints'  for the leaderboard (match points + division bonus, see below)
+ * Ties are always broken the same way: round difference, then point difference.
+ */
+function sortStandings(list, field) {
+  field = field || 'leaguePoints';
   list.sort((a, b) => {
-    if (b.leaguePoints !== a.leaguePoints) return b.leaguePoints - a.leaguePoints;
+    if (b[field] !== a[field]) return b[field] - a[field];
     const roundDiffA = a.roundsWon - a.roundsLost;
     const roundDiffB = b.roundsWon - b.roundsLost;
     if (roundDiffB !== roundDiffA) return roundDiffB - roundDiffA;
@@ -162,22 +169,57 @@ function sortStandings(list) {
 }
 
 /**
+ * DIVISION BONUS POINTS (for the leaderboard only)
+ * ------------------------------------------------
+ * The brief: players in a higher division should get a bonus added to
+ * their leaderboard total, on a sliding scale — the LAST (bottom)
+ * division gets +0, the one above it gets +1, the one above that +2,
+ * and so on. This is fully adaptable: it re-calculates from however
+ * many divisions the event actually has, so adding or removing a
+ * division automatically reshuffles the bonus scale — you never have
+ * to renumber anything by hand.
+ *
+ * IMPORTANT — division order matters: in data/data.json, list each
+ * event's divisions from STRONGEST/TOP first to WEAKEST/LAST last
+ * (e.g. "Division A" then "Division B" then "Division C"). The bonus
+ * is worked out from that order.
+ *
+ * Want a bigger/smaller gap between divisions? Change
+ * settings.divisionBonusIncrement in data.json (default 1).
+ * Want to turn this off completely? Set it to 0.
+ */
+function computeDivisionBonus(data, divisionIndex, totalDivisions) {
+  const increment = (data.settings && typeof data.settings.divisionBonusIncrement === 'number')
+    ? data.settings.divisionBonusIncrement
+    : 2;
+  const stepsFromLast = (totalDivisions - 1) - divisionIndex; // last division = 0 steps
+  return stepsFromLast * increment;
+}
+
+/**
  * Builds the leaderboard for one event: every participant across every
  * division in that event, combined into one ranked list.
  */
 function computeEventLeaderboard(data, eventKey) {
   const event = data.events[eventKey];
+  const totalDivisions = event.divisions.length;
   const combined = {};
 
-  event.divisions.forEach((division) => {
+  event.divisions.forEach((division, divisionIndex) => {
+    const bonus = computeDivisionBonus(data, divisionIndex, totalDivisions);
     const rows = computeDivisionStandings(data, eventKey, division);
     rows.forEach((row) => {
-      combined[row.id] = { ...row, divisionName: division.name };
+      combined[row.id] = {
+        ...row,
+        divisionName: division.name,
+        divisionBonus: bonus,
+        totalPoints: row.leaguePoints + bonus,
+      };
     });
   });
 
   const list = Object.values(combined);
-  sortStandings(list);
+  sortStandings(list, 'totalPoints');
   list.forEach((row, i) => { row.rank = i + 1; });
   return list;
 }

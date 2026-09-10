@@ -358,21 +358,21 @@
         {
           "id": "m-div-b",
           "name": "Division B",
-          "participants": ["mx7", "mx8", "mx9"],
+          "participants": ["mx5", "mx6", "mx7"],
           "matches": [
             {
               "id": "m-b-1", "day": "Friday", "date": "2026-09-18",
-              "participants": ["mx1", "mx2"], "played": false,
+              "participants": ["mx5", "mx6"], "played": false,
               "rounds": []
             },
             {
-              "id": "m-b-2", "day": "Friday", "date": "2026-09-18",
-              "participants": ["mx3", "mx1"], "played": false,
+              "id": "m-b-2", "day": "Friday", "date": "2026-09-25",
+              "participants": ["mx5", "mx7"], "played": false,
               "rounds": []
             },
             {
-              "id": "m-b-3", "day": "Friday", "date": "2026-09-25",
-              "participants": ["mx2", "mx3"], "played": false,
+              "id": "m-b-3", "day": "Friday", "date": "2026-10-02",
+              "participants": ["mx6", "mx7"], "played": false,
               "rounds": []
             }
           ]
