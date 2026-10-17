@@ -91,8 +91,8 @@
           "matches": [
             {
               "id": "s-a-1", "day": "Friday", "date": "2026-10-16",
-              "participants": ["p1", "p4"], "played": false,
-              "rounds": [ ]
+              "participants": ["p1", "p4"], "played": true,
+              "rounds": [ {"a": 8, "b": 10}, {"a": 10, "b": 3}, {"a": 10, "b": 8}]
             },
             {
               "id": "s-a-2", "day": "Saturday", "date": "2026-10-17",
@@ -128,8 +128,8 @@
           "matches": [
             {
               "id": "s-b-1", "day": "Friday", "date": "2026-10-16",
-              "participants": ["p5", "p7"], "played": false,
-              "rounds": [ ]
+              "participants": ["p5", "p7"], "played": true,
+              "rounds": [ {"a": 10, "b": 5}, {"a": 10, "b": 6} ]
             },
             {
               "id": "s-b-2", "day": "Saturday", "date": "2026-10-17",
@@ -165,13 +165,13 @@
           "matches": [
             {
               "id": "s-c-1", "day": "Friday", "date": "2026-10-16",
-              "participants": ["p9", "p10"], "played": false,
-              "rounds": []
+              "participants": ["p9", "p10"], "played": true,
+              "rounds": [{"a": 10, "b": 8},{"a": 10, "b": 5}]
             },
             {
               "id": "s-c-2", "day": "Friday", "date": "2026-10-16",
-              "participants": ["p11", "p21"], "played": false,
-              "rounds": []
+              "participants": ["p11", "p21"], "played": true,
+              "rounds": [{"a": 10, "b": 5},{"a": 10, "b": 5}]
             },
             {
               "id": "s-c-3", "day": "Friday", "date": "2026-10-23",
@@ -202,8 +202,8 @@
           "matches": [
             {
               "id": "s-d-1", "day": "Friday", "date": "2026-10-16",
-              "participants": ["p12", "p14"], "played": false,
-              "rounds": []
+              "participants": ["p12", "p14"], "played": true,
+              "rounds": [{"a": 5, "b": 10}, {"a": 12, "b": 13}]
             },
             {
               "id": "s-d-2", "day": "Friday", "date": "2026-10-16",
@@ -239,8 +239,8 @@
           "matches": [
             {
               "id": "s-e-1", "day": "Friday", "date": "2026-10-16",
-              "participants": ["p13", "p18"], "played": false,
-              "rounds": []
+              "participants": ["p13", "p18"], "played": true,
+              "rounds": [{"a": 8, "b": 10}, {"a": 10, "b": 8}, {"a": 10, "b": 8}]
             },
             {
               "id": "s-e-2", "day": "Friday", "date": "2026-10-16",
@@ -276,8 +276,8 @@
           "matches": [
             {
               "id": "s-f-1", "day": "Friday", "date": "2026-10-16",
-              "participants": ["p17", "p27"], "played": false,
-              "rounds": []
+              "participants": ["p17", "p27"], "played": true,
+              "rounds": [{"a": 7, "b": 10}, {"a": 10, "b": 6}, {"a": 13, "b": 12}]
             },
             {
               "id": "s-f-2", "day": "Friday", "date": "2026-10-16",
@@ -350,8 +350,8 @@
           "matches": [
             {
               "id": "s-h-1", "day": "Friday", "date": "2026-10-16",
-              "participants": ["p29", "p30"], "played": false,
-              "rounds": []
+              "participants": ["p29", "p30"], "played": true,
+              "rounds": [{"a": 10, "b": 5},{"a": 10, "b": 5}]
             },
             {
               "id": "s-h-2", "day": "Friday", "date": "2026-10-16",
@@ -430,13 +430,13 @@
           "matches": [
             {
               "id": "d-b-1", "day": "Friday", "date": "2026-10-16",
-              "participants": ["d5", "d6"], "played": false,
-              "rounds": []
+              "participants": ["d5", "d6"], "played": true,
+              "rounds": [{"a": 8, "b": 10}, {"a": 7, "b": 10}]
             },
             {
               "id": "d-b-2", "day": "Friday", "date": "2026-10-16",
-              "participants": ["d7", "d8"], "played": false,
-              "rounds": []
+              "participants": ["d7", "d8"], "played": true,
+              "rounds": [{"a": 10, "b": 5},{"a": 10, "b": 5}]
             },
             {
               "id": "d-b-3", "day": "Friday", "date": "2026-10-23",
@@ -467,13 +467,13 @@
           "matches": [
             {
               "id": "d-b-1", "day": "Friday", "date": "2026-10-16",
-              "participants": ["d9", "d10"], "played": false,
-              "rounds": []
+              "participants": ["d9", "d10"], "played": true,
+              "rounds": [{"a": 8, "b": 10}, {"a": 10, "b": 6}, {"a": 10, "b": 5}]
             },
             {
               "id": "d-b-2", "day": "Friday", "date": "2026-10-16",
-              "participants": ["d11", "d13"], "played": false,
-              "rounds": []
+              "participants": ["d11", "d13"], "played": true,
+              "rounds": [{"a": 10, "b": 8},{"a": 10, "b": 8}]
             },
             {
               "id": "d-b-3", "day": "Friday", "date": "2026-10-23",
@@ -516,8 +516,8 @@
           "matches": [
             {
               "id": "m-a-1", "day": "Friday", "date": "2026-10-16",
-              "participants": ["mx1", "mx3"], "played": false,
-              "rounds": []
+              "participants": ["mx1", "mx3"], "played": true,
+              "rounds": [{"a": 11, "b": 9}, {"a": 6, "b": 10}, {"a": 10, "b": 6}]
             },
             {
               "id": "m-a-2", "day": "Saturday", "date": "2026-10-17",
@@ -590,8 +590,8 @@
           "matches": [
             {
               "id": "m-c-1", "day": "Friday", "date": "2026-10-16",
-              "participants": ["mx9", "mx10"], "played": false,
-              "rounds": []
+              "participants": ["mx9", "mx10"], "played": true,
+              "rounds": [{"a": 5, "b": 10},{"a": 5, "b": 10}]
             },
             {
               "id": "m-c-2", "day": "Friday", "date": "2026-10-23",
